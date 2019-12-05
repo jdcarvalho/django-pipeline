@@ -98,7 +98,7 @@ class PipelineSettings(MutableMapping):
     def __getitem__(self, key):
         value = self.settings[key]
         if key.endswith(("_BINARY", "_ARGUMENTS")):
-            if isinstance(value, string_types):
+            if isinstance(value, (str,)):
                 return tuple(shlex.split(value, posix=(os.name == 'posix')))
             return tuple(value)
         return value

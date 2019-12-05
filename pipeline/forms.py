@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.contrib.staticfiles.storage import staticfiles_storage
-from django.utils import six
+# from django.utils import six
 from django.utils.functional import cached_property
 
 from .collector import default_collector
@@ -168,7 +168,7 @@ class PipelineFormMediaMetaClass(type):
                                   media_type='css',
                                   extra_files=extra_files.get(media_target,
                                                               [])))
-            for media_target, media_packages in six.iteritems(css_packages)
+            for media_target, media_packages in dict.keys(css_packages)
         )
 
     def _get_js_files(cls, extra_files):

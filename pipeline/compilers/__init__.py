@@ -143,7 +143,7 @@ class SubProcessCompiler(CompilerBase):
         except OSError as e:
             stdout_captured = None  # Don't save erroneous result.
             raise CompilerError(e, command=argument_list,
-                                error_output=text_type(e))
+                                error_output=str(e))
         finally:
             # Decide what to do with captured stdout.
             if stdout:
